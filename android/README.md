@@ -4,12 +4,35 @@ Bu klasördeki **`GoodbyeDPI-Android.apk`**, Türkiye'de Discord, Roblox ve enge
 
 ---
 
-## 🚀 Hızlı Kurulum
+## 🇹🇷 Discord'u Sorunsuz Açma Ayarı (Kesin Çözüm)
 
-1. Klasördeki **`GoodbyeDPI-Android.apk`** dosyasını Android telefonunuza aktarın veya [GitHub Releases](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest) sayfasından doğrudan telefonunuza indirin.
-2. APK dosyasını açıp kurun *(gerekirse "Bilinmeyen kaynaklardan yüklemeye izin ver" seçeneğini onaylayın)*.
-3. Uygulamayı açın ve ortadaki **Bağlan (Connect)** butonuna dokunun. Android sisteminin sorduğu "VPN Bağlantı Talebi"ni **Tamam** diyerek onaylayın.
-4. Discord ve engelli sitelere doğrudan telefonunuzdan girmeyi deneyin.
+Türkiye'deki operatörler (Türk Telekom, Superonline, Vodafone vb.) Discord'u hem **DNS engeli** hem de **DPI filtrelemesi** ile engellediği için, uygulamayı kurup ayar yapmadan doğrudan bastığınızda Discord açılmayabilir veya sonsuz yüklemede kalabilir.
+
+Discord ve diğer servislerin anında açılması için **yalnızca 30 saniyelik** şu 2 adımı yapmanız gerekir:
+
+### 1. Adım: Telefonun Özel DNS Ayarı (En Önemlisi)
+Operatörlerin Discord adreslerini engellemesini aşmak için:
+1. Telefonun **Ayarlar** menüsüne gidin.
+2. **Bağlantılar (veya Ağ ve İnternet) > Özel DNS (Private DNS)** seçeneğine dokunun.
+3. **Özel DNS sağlayıcı ana bilgisayar adı** seçeneğini işaretleyip şu adresi yazın ve kaydedin:
+   ```text
+   dns.google
+   ```
+   *(veya alternatif: `one.one.one.one`)*
+
+### 2. Adım: Uygulama İçine Türkiye Discord Kodunu Girme
+DPI duvarını atlatmak için:
+1. **GoodbyeDPI (ByeDPI)** uygulamasını açın.
+2. Sağ üstteki **Ayarlar (çark ⚙️)** simgesine dokunun.
+3. **"Use command line settings"** *(Komut satırı ayarlarını kullan)* seçeneğini **AÇIK** yapın.
+4. Açılan **Command line editor** kutusuna dokunun ve şu kodu eksiksiz yapıştırın:
+   ```text
+   -s1 -At -d2 -f-1 -r1+s -An
+   ```
+   *(Eğer Turkcell Superonline kullanıyorsanız alternatif olarak: `-s1 -At -d2 -At -f-1 -r1+s -An`)*
+5. Ana ekrana dönüp **Connect (Bağlan)** butonuna dokunun.
+
+🎉 **Discord, sesli kanallar ve engelli siteler anında açılacaktır!**
 
 ---
 

@@ -65,18 +65,28 @@ sudo ./status.sh
 
 ---
 
-## 📱 Android Kurulumu ve Cihaz Açılışında Otomatik Başlatma
+## 📱 Android Kurulumu ve Discord Ayarı (Kesin Çözüm)
 
 Android cihazlarda Discord ve engelli sitelere girmek için kök yetkisi (root) gerektirmeyen **GoodbyeDPI Android** kullanılır:
 
 ### 1. Kurulum:
-1. **[GoodbyeDPI-Android.apk](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest/download/GoodbyeDPI-Android.apk)** dosyasını telefonunuza indirin ve kurun.
-2. Uygulamayı açın ve ortadaki **Bağlan (Connect)** butonuna dokunun. Android sisteminin sorduğu bağlantı onayına **Tamam** deyin.
+1. **[GoodbyeDPI-Android.apk](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest/download/GoodbyeDPI-Android.apk)** dosyasını indirin ve kurun. *(Veya repo içindeki `android/GoodbyeDPI-Android.apk`)*
 
-### 2. Telefon Kapanıp Açıldığında Otomatik Başlaması İçin:
+### 2. 🇹🇷 Discord'u Açmak İçin Gerekli Ayarlar (30 Saniye):
+Türkiye'deki operatörlerin (Türk Telekom, Superonline vb.) uyguladığı DNS ve DPI filtrelerini aşmak için şu 2 basit ayarı yapın:
+
+1. **Telefonun Özel DNS Ayarı:** Telefonunuzun **Ayarlar > Bağlantılar > Özel DNS (Private DNS)** bölümüne gidin. "Özel DNS sağlayıcı ana bilgisayar adı" seçeneğine **`dns.google`** *(veya `one.one.one.one`)* yazıp kaydedin.
+2. **Uygulama İçi Kod Ayarı:** ByeDPI uygulamasını açın, sağ üstteki **Ayarlar (⚙️)** simgesine dokunun. **"Use command line settings"** seçeneğini açın ve Command line editor kutusuna şu kodu yapıştırın:
+   ```text
+   -s1 -At -d2 -f-1 -r1+s -An
+   ```
+   *(Superonline için alternatif: `-s1 -At -d2 -At -f-1 -r1+s -An`)*
+3. Ana ekrandan **Connect (Bağlan)** butonuna basın. Discord anında açılacaktır!
+
+### 3. Telefon Kapanıp Açıldığında Otomatik Başlaması İçin:
 1. Uygulama içinde sağ üstteki **Ayarlar (çark ⚙️)** simgesine dokunun.
 2. **"Automatically start the service when the device boots"** *(Cihaz açıldığında servisi otomatik başlat)* seçeneğini **AÇIN**.
-3. Telefonunuzun **Ayarlar > Uygulamalar > GoodbyeDPI (veya ByeDPI)** sayfasına gidin.
+3. Telefonunuzun **Ayarlar > Uygulamalar > ByeDPI (veya GoodbyeDPI)** sayfasına gidin.
 4. **Pil (Battery) / Pil Tasarrufu** seçeneğini **"Kısıtlama Yok" (Unrestricted / Don't optimize)** olarak ayarlayın.
 
 > **Tebrikler:** Artık telefonunuz kapansa, şarjı bitse veya yeniden başlasa bile uygulama arka planda kendiliğinden açılacak ve Discord/engelli sitelere kesintisiz girmeye devam edeceksiniz.
