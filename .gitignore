@@ -1,0 +1,7 @@
+*.o
+*.exe
+.DS_Store
+
+# Linux build/download outputs
+linux/bin/
+bin/
