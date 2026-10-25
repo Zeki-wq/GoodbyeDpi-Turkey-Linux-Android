@@ -7,18 +7,21 @@ Discord, Roblox ve Türkiye'de internet servis sağlayıcıları tarafından eng
 ## ⚡ Özellikler
 
 - **Sıfır Hız Kaybı & Orijinal Ping:** Bu bir VPN değildir. Trafiğinizi yabancı bir sunucuya yönlendirmez. Yalnızca engellemenin yapıldığı ilk el sıkışma paketlerini düzenler. İndirme/yükleme hızınız ve oyunlardaki pinginiz asla etkilenmez.
-- **Kalıcı Kurulum (Otomatik Başlangıç):** Tek bir komutla kurulur. Bilgisayarınızı yeniden başlatsanız bile systemd servisi olarak arka planda otomatik çalışmaya devam eder.
+- **Kalıcı Kurulum (Otomatik Başlangıç):** 
+  - **Linux'ta:** Tek bir komutla kurulur (`sudo ./install.sh`). Bilgisayarınızı yeniden başlatsanız bile systemd servisi olarak arka planda otomatik çalışmaya devam eder.
+  - **Android'de:** Uygulama içi ayar ve pil kısıtlamasını kaldırarak telefonunuz her açıldığında VPN otomatik olarak kendiliğinden bağlanır.
 - **Tüm Dağıtımlarla Uyumlu:** Ubuntu, Debian, Linux Mint, Fedora, Arch Linux, Manjaro, Pop!_OS, openSUSE ve systemd kullanan tüm modern Linux dağıtımlarında sorunsuz çalışır.
 - **Tüm Operatörlerde Geçerli:** Türk Telekom, Turkcell Superonline, TurkNet, Vodafone ve diğer tüm ISS'lerde ek ayar gerektirmeden çalışır.
-- **Temiz Kaldırma:** Tek bir komutla servis, dosyalar ve güvenlik duvarı kuralları sistemden tamamen silinir; geride hiçbir çöp veya artık bırakmaz.
+- **Temiz Kaldırma:** Tek bir komutla (`sudo ./remove.sh`) servis, dosyalar ve güvenlik duvarı kuralları sistemden tamamen silinir; geride hiçbir çöp veya artık bırakmaz.
 
 ---
 
 ## 📥 İndirme (Releases)
 
-En son sürümü doğrudan ZIP olarak indirmek için:
-- **[Linux Sürümünü İndir (Releases)](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest)**
-- **[Android Sürümünü İndir (ByeDPI Android APK)](https://github.com/dovecoteescapee/ByeDPIAndroid/releases/latest)**
+En son sürümleri doğrudan indirmek için:
+- **[Tüm Dosyaları İndir (Releases Sayfası)](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest)**
+- **[Android APK Doğrudan İndir (GoodbyeDPI-Android.apk)](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest/download/GoodbyeDPI-Android.apk)** *(Veya repo içindeki `android/GoodbyeDPI-Android.apk`)*
+- **[Linux Arşivi Doğrudan İndir (.tar.gz)](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest/download/goodbyedpi-turkey-linux.tar.gz)**
 
 ---
 
@@ -31,11 +34,10 @@ Terminali açın ve şu komutları girin:
 ```bash
 git clone https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android.git
 cd GoodbyeDpi-Turkey-Linux-Android
-chmod +x install.sh remove.sh
 sudo ./install.sh
 ```
 
-*(Veya yukarıdaki Releases bağlantısından ZIP indirip ayıkladıktan sonra klasör içinde `sudo ./install.sh` çalıştırmanız yeterlidir.)*
+*(Veya yukarıdaki Releases bağlantısından arşivi indirip ayıkladıktan sonra klasör içinde `sudo ./install.sh` çalıştırmanız yeterlidir.)*
 
 > **Bilgisayar açılışında otomatik başlar:** `install.sh` betiği gerekli bileşenleri otomatik indirir, doğrular, systemd servisi olarak `/opt/goodbyedpi-turkey` altına kurar ve etkinleştirir. Artık terminali kapatabilir veya bilgisayarı yeniden başlatabilirsiniz; servis her zaman arka planda devrede kalacaktır.
 
@@ -63,14 +65,21 @@ sudo ./status.sh
 
 ---
 
-## 📱 Android Kullanımı
+## 📱 Android Kurulumu ve Cihaz Açılışında Otomatik Başlatma
 
-Android cihazlarda DPI engellerini aşmak için sistemin yerel VPN arayüzünü kullanan (ancak harici bir sunucuya bağlanmadan paketleri yerel olarak bölen) açık kaynaklı **ByeDPI Android** aracı kullanılır:
+Android cihazlarda Discord ve engelli sitelere girmek için kök yetkisi (root) gerektirmeyen **GoodbyeDPI Android** kullanılır:
 
-1. **[Releases](https://github.com/dovecoteescapee/ByeDPIAndroid/releases/latest)** sayfasından son `.apk` dosyasını indirin ve kurun.
-2. Uygulamayı açın.
-3. Mod ayarlarından **VPN Modu** seçin ve **Bağlan (Connect)** butonuna dokunun.
-4. Root (kök yetkisi) gerekmez; Discord ve engelli sitelere Android cihazınızdan hız kaybı olmadan erişebilirsiniz.
+### 1. Kurulum:
+1. **[GoodbyeDPI-Android.apk](https://github.com/Zeki-wq/GoodbyeDpi-Turkey-Linux-Android/releases/latest/download/GoodbyeDPI-Android.apk)** dosyasını telefonunuza indirin ve kurun.
+2. Uygulamayı açın ve ortadaki **Bağlan (Connect)** butonuna dokunun. Android sisteminin sorduğu bağlantı onayına **Tamam** deyin.
+
+### 2. Telefon Kapanıp Açıldığında Otomatik Başlaması İçin:
+1. Uygulama içinde sağ üstteki **Ayarlar (çark ⚙️)** simgesine dokunun.
+2. **"Automatically start the service when the device boots"** *(Cihaz açıldığında servisi otomatik başlat)* seçeneğini **AÇIN**.
+3. Telefonunuzun **Ayarlar > Uygulamalar > GoodbyeDPI (veya ByeDPI)** sayfasına gidin.
+4. **Pil (Battery) / Pil Tasarrufu** seçeneğini **"Kısıtlama Yok" (Unrestricted / Don't optimize)** olarak ayarlayın.
+
+> **Tebrikler:** Artık telefonunuz kapansa, şarjı bitse veya yeniden başlasa bile uygulama arka planda kendiliğinden açılacak ve Discord/engelli sitelere kesintisiz girmeye devam edeceksiniz.
 
 ---
 
@@ -98,4 +107,4 @@ Tarayıcınızın (Chrome, Brave, Edge vb.) Ayarlar bölümünde **"Güvenli DNS
 ## 📄 Lisans
 
 Bu proje [Apache License 2.0](LICENSE) altında dağıtılmaktadır.
-DPI atlatma motoru için bol-van'ın açık kaynaklı [zapret](https://github.com/bol-van/zapret) projesi kullanılmaktadır.
+DPI atlatma motoru için bol-van'ın açık kaynaklı [zapret](https://github.com/bol-van/zapret) ve [ByeDPI](https://github.com/dovecoteescapee/ByeDPIAndroid) projeleri kullanılmaktadır.

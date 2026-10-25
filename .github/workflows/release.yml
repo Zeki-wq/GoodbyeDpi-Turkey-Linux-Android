@@ -1,0 +1,63 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Package Linux release and prepare assets
+        run: |
+          mkdir -p dist
+          tar -czf dist/goodbyedpi-turkey-linux.tar.gz install.sh remove.sh status.sh linux/ README.md LICENSE
+          zip -r dist/goodbyedpi-turkey-linux.zip install.sh remove.sh status.sh linux/ README.md LICENSE
+          cp android/GoodbyeDPI-Android.apk dist/GoodbyeDPI-Android.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/GoodbyeDPI-Android.apk
+            dist/goodbyedpi-turkey-linux.tar.gz
+            dist/goodbyedpi-turkey-linux.zip
+          name: "GoodbyeDPI-Turkey v1.0.0 (Linux & Android)"
+          body: |
+            ## 🇹🇷 GoodbyeDPI-Turkey (Linux & Android)
+
+            Discord, Roblox ve Türkiye'de internet servis sağlayıcıları tarafından engellenen servislere **VPN kullanmadan** ve **internet hızında yavaşlama olmadan** erişim sağlayan güncel sürüm.
+
+            ---
+
+            ### 📦 İndirme Seçenekleri (Assets)
+
+            - **Android İçin:** `GoodbyeDPI-Android.apk` dosyasını telefonunuza indirip kurun.
+            - **Linux İçin:** `goodbyedpi-turkey-linux.tar.gz` veya `goodbyedpi-turkey-linux.zip` arşivini indirip ayıklayın.
+
+            ---
+
+            ### 🐧 Linux Kullanımı (Açılışta Otomatik Başlar)
+
+            ```bash
+            sudo ./install.sh
+            ```
+            - Bilgisayarınızı yeniden başlatsanız bile arka planda otomatik çalışmaya devam eder.
+            - Kaldırmak istediğinizde: `sudo ./remove.sh`
+
+            ---
+
+            ### 📱 Android Kullanımı (Açılışta Otomatik Başlar)
+
+            1. APK'yı kurun ve açın, **Bağlan (Connect)** butonuna basıp ilk VPN iznini onaylayın.
+            2. Sağ üstteki **Ayarlar (⚙️)** simgesinden **"Automatically start the service when the device boots"** seçeneğini açın.
+            3. Android Pil ayarlarından uygulamayı **"Kısıtlama Yok (Unrestricted)"** yapın.
+            - Telefon yeniden başlasa bile servis otomatik açılacaktır.
