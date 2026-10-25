@@ -115,7 +115,12 @@ Tarayıcınızın (Chrome, Brave, Edge vb.) Ayarlar bölümünde **"Güvenli DNS
 
 ---
 
-## 📄 Lisans
+## 📄 Lisans ve Teşekkürler (Credits & Upstream)
 
-Bu proje [Apache License 2.0](LICENSE) altında dağıtılmaktadır.
-DPI atlatma motoru için bol-van'ın açık kaynaklı [zapret](https://github.com/bol-van/zapret) ve [ByeDPI](https://github.com/dovecoteescapee/ByeDPIAndroid) projeleri kullanılmaktadır.
+Bu proje, açık kaynak topluluğunun geliştirdiği değerli araçların Türkiye şartlarına uyarlanması ve paketlenmesiyle oluşturulmuştur. Tüm geliştiricilere emekleri için teşekkür ederiz:
+
+- **Android Uygulaması (ByeByeDPI):** Android tarafında kullanılan uygulama, **[romanvht/ByeByeDPI](https://github.com/romanvht/ByeByeDPI)** projesine aittir. [dovecoteescapee](https://github.com/dovecoteescapee/ByeDPIAndroid) ve [hufrea/byedpi](https://github.com/hufrea/byedpi) tabanlıdır. **GPL-3.0** lisansı ile dağıtılmaktadır. Repomuzdaki APK dosyası resmi derlenmiş orijinal ikilidir.
+- **Linux DPI Motoru (zapret / nfqws):** Linux tarafında paket manipülasyonunu gerçekleştiren çekirdek motoru, **[bol-van/zapret](https://github.com/bol-van/zapret)** projesinin açık kaynaklı `nfqws` ikilisidir (MIT Lisansı).
+- **Orijinal GoodbyeDPI-Turkey:** Bu projenin esin kaynağı ve ilk temeli, **[Çağrı Taşkın (cagritaskn)](https://github.com/cagritaskn/GoodbyeDPI-Turkey)** ve asıl GoodbyeDPI geliştiricisi **[ValdikSS](https://github.com/ValdikSS/GoodbyeDPI)** tarafından hazırlanan projedir (Apache-2.0 Lisansı).
+- **Linux Yönetim Betikleri:** Bu repoda yer alan `install.sh`, `remove.sh`, `status.sh` ve `linux/goodbyedpi-turkey.sh` otomasyon betikleri [Apache License 2.0](LICENSE) altındadır.
+

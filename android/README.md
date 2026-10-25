@@ -104,3 +104,12 @@ Uzak sunucuya bağlanmadığı ve trafiği şifrelemediği için normal VPN'lere
 ## 7. Kaldırma
 
 Uygulamayı normal şekilde kaldırmanız yeterlidir.
+
+---
+
+## 📄 Lisans ve Kaynak (Credits)
+
+Bu klasörde yer alan uygulama, **[romanvht/ByeByeDPI](https://github.com/romanvht/ByeByeDPI)** projesine aittir ve **GNU General Public License v3.0 (GPL-3.0)** altında dağıtılmaktadır. Uygulama [dovecoteescapee](https://github.com/dovecoteescapee/ByeDPIAndroid) ve [hufrea/byedpi](https://github.com/hufrea/byedpi) tabanlıdır.
+
+Klasördeki APK, resmi sürümden doğrudan alınmış orijinal ve değiştirilmemiş ikilidir.
+
