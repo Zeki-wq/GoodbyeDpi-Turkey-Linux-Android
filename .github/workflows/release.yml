@@ -30,7 +30,7 @@ jobs:
             dist/GoodbyeDPI-Android.apk
             dist/goodbyedpi-turkey-linux.tar.gz
             dist/goodbyedpi-turkey-linux.zip
-          name: "GoodbyeDPI-Turkey v1.0.0 (Linux & Android)"
+          name: "GoodbyeDPI-Turkey ${{ github.ref_name }} (Linux & Android)"
           body: |
             ## 🇹🇷 GoodbyeDPI-Turkey (Linux & Android)
 
@@ -55,9 +55,12 @@ jobs:
 
             ---
 
-            ### 📱 Android Kullanımı (Açılışta Otomatik Başlar)
+            ### 📱 Android Kullanımı (ByeByeDPI v1.8.2)
 
-            1. APK'yı kurun ve açın, **Bağlan (Connect)** butonuna basıp ilk VPN iznini onaylayın.
-            2. Sağ üstteki **Ayarlar (⚙️)** simgesinden **"Automatically start the service when the device boots"** seçeneğini açın.
-            3. Android Pil ayarlarından uygulamayı **"Kısıtlama Yok (Unrestricted)"** yapın.
-            - Telefon yeniden başlasa bile servis otomatik açılacaktır.
+            1. Eski ByeDPI kuruluysa kaldırın, APK'yı kurun ve bağlanıp VPN iznini onaylayın.
+            2. Telefonun **Özel DNS** ayarına `dns.google` yazın (olmazsa `one.one.one.one`).
+            3. Uygulamada **Proxy test** ile operatörünüzde çalışan komutu bulup uygulayın.
+            4. **Apps filter** ile yalnızca Discord'u seçebilirsiniz.
+            5. **Autostart service on device startup** seçeneğini açın ve pil kısıtlamasını kaldırın.
+            - Ayrıntılar: android/README.md
+            - Hiçbir ayar her operatörde garanti çalışmaz; çalışmazsa Proxy test ile farklı komut deneyin.
