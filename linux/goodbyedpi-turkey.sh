@@ -175,10 +175,13 @@ do_setup() (
     install -m 0755 "${tmp}/${member}" "${BIN_DIR}/nfqws" || exit 1
 
     ver="$("${BIN_DIR}/nfqws" --version 2>&1 | head -n 1)"
-    if [[ "$ver" != *"$ZAPRET_VERSION"* ]]; then
-        err "Kurulan nfqws çalıştırılamadı veya sürümü beklenmedik: '${ver}'"
+    if [[ "$ver" != *"github version"* ]]; then
+        err "Kurulan nfqws çalıştırılamadı: '${ver}'"
         rm -f "${BIN_DIR}/nfqws"
         exit 1
+    fi
+    if [[ "$ver" != *"$ZAPRET_VERSION"* ]]; then
+        warn "nfqws çalışıyor ama sürüm metni beklenenden farklı: '${ver}' (arşivin SHA256'sı doğrulandı)"
     fi
     log "nfqws kuruldu: ${BIN_DIR}/nfqws (${ver})"
 )

@@ -8,9 +8,10 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+METHOD="${1:-default}"
 
 echo "=========================================================="
-echo "  GoodbyeDPI-Turkey (Linux) — Kurulum Başlatılıyor"
+echo "  GoodbyeDPI-Turkey (Linux) — Kurulum Başlatılıyor (yöntem: ${METHOD})"
 echo "=========================================================="
 
 # Otomatik bağımlılık kontrolü ve bildirimi
@@ -38,7 +39,7 @@ if [[ -n "$MISSING" ]]; then
 fi
 
 # Kurulumu gerçekleştir (systemd servisi olarak kurar ve açılışta otomatik başlatır)
-bash "${SCRIPT_DIR}/linux/goodbyedpi-turkey.sh" install default
+bash "${SCRIPT_DIR}/linux/goodbyedpi-turkey.sh" install "${METHOD}"
 
 echo ""
 echo "=========================================================="

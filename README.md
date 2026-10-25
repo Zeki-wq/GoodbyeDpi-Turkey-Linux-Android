@@ -63,6 +63,19 @@ Bu komut:
 sudo ./status.sh
 ```
 
+### 4. Çalışmazsa Başka Yöntem Dene
+
+Operatöre göre işe yarayan yöntem değişebilir. Aynı komutu yöntem adıyla tekrar çalıştırmak yeterlidir (eski kurulumun yerine geçer):
+
+```bash
+sudo ./install.sh alt4     # yöntemler: default alt alt2 alt3 alt4 alt5 alt6
+```
+
+Yöntemlerin ne yaptığı için: `./linux/goodbyedpi-turkey.sh methods`. Önerilen deneme sırası: `default` → `alt4` → `alt5`.
+
+> [!NOTE]
+> Linux sürümü gerçek bir Linux makinede test edilmedi; kurulum betiği, kurallar ve indirilen `nfqws` ikilisi doğrulandı ama ağ üzerindeki etkisi operatöre göre değişir. Sorun olursa `sudo ./status.sh` ve `journalctl -u goodbyedpi-turkey -b` çıktısına bakın. Ayrıntılar: [linux/README.md](linux/README.md)
+
 ---
 
 ## 📱 Android Kurulumu
